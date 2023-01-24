@@ -1438,8 +1438,6 @@ import random
 
 
 
-print('TEST')
-
 
 
 
