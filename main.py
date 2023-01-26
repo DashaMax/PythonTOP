@@ -1444,6 +1444,164 @@ import random
 
 
 
+#######################
+#   Random password   #
+#######################
+
+
+# from random import randint
+#
+#
+# SHORTEST = 7
+# LONGEST = 10
+# MIN_ASCII = 33
+# MAX_ASCII = 126
+#
+# def random_password() -> str:
+#     random_length = randint(SHORTEST, LONGEST)
+#     password = ''.join(chr(randint(MIN_ASCII, MAX_ASCII)) for _ in range(random_length))
+#     return password
+#
+#
+# print('Your random password:', random_password())
+
+
+##############################################
+
+
+
+
+
+
+# print('heLLo, wORld!'.swapcase())   # - меняет регистр на противоположный
+#
+# print('heLLo, wORld!'.find('OR'))   # - возвращает первый индекс, который соответствует заданной подстроке. Если совпадений нет -> -1
+#
+# print('heLLo, wORld!'.rfind('L'))   # - ищет справа налево
+#
+# print('heLLo, wORld!'.index('OR'))   # - возвращает первый индекс, который соответствует заданной подстроке. Если совпадений нет -> Ошибка!
+#
+# print('heLLo, wORld!'.rindex('L'))   # - ищет справа налево
+#
+# print('abc123'.isalnum())  # - строка состоит из букв и цифр
+# print('abc'.isalpha())  # - строка состоит только из букв
+# print('abc'.center(10, '='))
+
+
+
+
+
+
+
+
+
+#######################
+#      Swap words     #
+#######################
+
+
+# s = 'One Two'
+# space = s.index(' ')
+# s_new = s[space + 1:] + ' ' + s[:space]
+# print(s_new)
+
+
+##############################################
+
+
+
+
+
+
+
+#######################
+#     Find numbers    #
+#######################
+
+
+# s = 'ab12c59p7dq'
+# digits = [int(x) for x in s if x.isdigit()]
+# print(digits)
+
+
+##############################################
+
+
+
+
+
+
+
+#######################
+#     Find letter     #
+#######################
+
+
+# s = 'Nearly all web services collect this basic information from users in their server logs. However, Python Tutor does not collect any personally identifiable information from its users.'
+#
+# LETTER = 'K'
+# result = s.index(LETTER) if s.count(LETTER) == 1 else '' if not s.count(LETTER) else str(s.find(LETTER)) + ' ' + str(s.rfind(LETTER))
+# print(result)
+
+
+##############################################
+
+
+
+
+
+
+
+
+#######################
+#    Delete letter    #
+#######################
+
+
+# s = 'Nearly all web services collect this basic information from users in their server logs. However, Python Tutor does not collect any personally identifiable information from its users.'
+#
+# LETTER = 'h'
+# h_1 = s.find(LETTER)
+# h_2 = s.rfind(LETTER)
+# s_new = s[:h_1] + s[h_2 + 1:]
+# print(s_new)
+
+
+##############################################
+
+
+
+
+
+
+
+##############################
+#     Replace the symbol     #
+##############################
+
+
+# s = 'В строке заменить пробелы символом "*"'
+# s = '*'.join(s.split())
+# print(s)
+
+
+##############################################
+
+
+
+
+
+
+###############
+#     FIO     #
+###############
+
+
+# s = input('FIO: ').split()
+# print(f'{s[0]} {s[1][0]}. {s[2][0]}.')
+
+
+##############################################
 
 
 
@@ -1454,6 +1612,33 @@ import random
 
 
 
+################################
+#     Регулярные выражения     #
+################################
+
+
+# import re
+#
+#
+# s = 'Я ищу совпадения в 2023 году. И я их найду в 2 счёта.'
+# reg = r'и'
+#
+# print(re.findall(reg, s))  # - возвращает список, содержащий все совпадения с заданным шаблоном
+#
+# print(re.search(reg, s))  # - возвращает данные первого совпадения с шаблоном
+# print(re.search(reg, s).span())
+# print(re.search(reg, s).start())
+# print(re.search(reg, s).end())
+# print(re.search(reg, s).group())
+#
+# print(re.match(reg, s))  # - возвращает данные совпадения с шаблоном в начале строки
+#
+# print(re.split(reg, s, 1))  # - разбивает строку по шаблону
+#
+# print(re.sub(reg, '*', s))  # - заменяет шаблон на заданный символ
+
+
+##############################################
 
 
 
