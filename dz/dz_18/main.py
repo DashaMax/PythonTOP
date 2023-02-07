@@ -27,8 +27,11 @@ def binary_search(l: list, n: int) -> str:
 numbers_list = [randint(-100, 100) for _ in range(10)]
 numbers_list.sort()
 print(numbers_list)
+
 user_num = int(input('Введите число: '))
+
 time_start = time()
 print(binary_search(numbers_list, user_num))
 time_finish = time()
+
 print('Время работы алгоритма:', round(time_finish - time_start, 4))
