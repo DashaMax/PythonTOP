@@ -24,12 +24,11 @@ print(list_check)
 
 
 # def count_negative_digits(l: list) -> int:
-#     n = 0
 #     if len(l) == 1:
 #         return 1 if l[0] < 0 else 0
-#     elif l[0] < 0:
+#     n = count_negative_digits(l[1:])
+#     if l[0] < 0:
 #         n += 1
-#     n += count_negative_digits(l[1:])
 #     return n
 #
 #
