@@ -1956,6 +1956,92 @@ import random
 
 
 
+#############################
+#     Recursion - lists     #
+#############################
+
+
+# def count_items(l: list) -> int:
+#     count = 0
+#     for item in l:
+#         if isinstance(item, str):
+#             count += 1
+#         elif isinstance(item, list):
+#             count += count_items(item)
+#     return count
+#
+#
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+# print(count_items(names))
+
+
+##############################################
+
+
+
+
+
+
+
+
+
+
+#############################
+#     Recursion - lists     #
+#############################
+
+
+# def union(l: list) -> int:
+#     if not l:
+#         return l
+#     if isinstance(l[0], list):
+#         return union(l[0]) + union(l[1:])
+#     return l[:1] + union(l[1:])
+#
+#
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+# print(union(names))
+
+
+##############################################
+
+
+
+
+
+
+
+####################
+#     LoopSort     #
+####################
+
+
+# from random import randint
+# import time
+#
+# def loop_sort(l: list) -> list:
+#     for i in range(len(l) - 1):
+#         for j in range(len(l) - i - 1):
+#             if l[j] > l[j + 1]:
+#                 l[j], l[j + 1] = l[j + 1], l[j]
+#     return l
+#
+#
+# list_ = [randint(-100, 100) for _ in range(1000)]
+# time1 = time.time()
+# print('Отсортированный список:\n', loop_sort(list_))
+# time2 = time.time()
+# delta_time = time2 - time1
+# print('Время сортировки:', round(delta_time, 4))
+
+
+##############################################
+
+
+
+
+
+
 
 
 
