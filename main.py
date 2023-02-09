@@ -2011,9 +2011,9 @@ import random
 
 
 
-####################
-#     LoopSort     #
-####################
+###################
+#    LoopSort     #
+###################
 
 
 # from random import randint
@@ -2028,14 +2028,172 @@ import random
 #
 #
 # list_ = [randint(-100, 100) for _ in range(1000)]
-# time1 = time.time()
+# time1 = time.monotonic()
+# print(time1)
 # print('Отсортированный список:\n', loop_sort(list_))
-# time2 = time.time()
+# time2 = time.monotonic()
 # delta_time = time2 - time1
 # print('Время сортировки:', round(delta_time, 4))
 
 
-##############################################
+#############################################
+
+
+
+
+
+
+
+#######################
+#    Merge Sorting    #
+#######################
+
+
+# from random import randint
+# import time
+#
+# def merge_sort(l: list) -> list:
+#     n = len(l)
+#     if n == 1:
+#         return l
+#     left = merge_sort(l[:n // 2])
+#     right = merge_sort(l[n // 2:n])
+#     i = j = 0
+#     new = []
+#
+#     while i < len(left) or j < len(right):
+#         if not i < len(left):
+#             new.append(right[j])
+#             j += 1
+#         elif not j < len(right):
+#             new.append(left[i])
+#             i += 1
+#         elif left[i] < right[j]:
+#             new.append(left[i])
+#             i += 1
+#         else:
+#             new.append(right[j])
+#             j += 1
+#
+#     return new
+#
+#
+# list_ = [randint(-100, 100) for _ in range(1000)]
+# time1 = time.monotonic()
+# print('Отсортированный список:\n', merge_sort(list_))
+# time2 = time.monotonic()
+# delta_time = time2 - time1
+# print('Время сортировки:', round(delta_time, 4))
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+#######################
+#    Shell Sorting    #
+#######################
+
+
+# from random import randint
+# import time
+#
+# def shell_sort(l: list) -> list:
+#     gap = len(l)
+#
+#     while gap:
+#         for val in range(gap, len(l)):
+#             cur_val = l[val]
+#             pos = val
+#
+#             while pos >= gap and l[pos - gap] > cur_val:
+#                 l[pos] = l[pos - gap]
+#                 pos -= gap
+#                 l[pos] = cur_val
+#
+#         gap //= 2
+#
+#     return l
+#
+#
+# list_ = [randint(-100, 100) for _ in range(1000)]
+# time1 = time.monotonic()
+# print('Отсортированный список:\n', shell_sort(list_))
+# time2 = time.monotonic()
+# delta_time = time2 - time1
+# print('Время сортировки:', round(delta_time, 4))
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+
+######################
+#    Quick Sorting   #
+######################
+
+
+# from random import randint
+# import time
+#
+# def quick_sort(l: list) -> list:
+#     if len(l) > 1:
+#         x = l[(len(l) - 1) // 2]
+#         low = [i for i in l if i < x]
+#         eq = [i for i in l if i == x]
+#         hi = [i for i in l if i > x]
+#         l = quick_sort(low) + eq + quick_sort(hi)
+#     return l
+#
+#
+# list_ = [randint(-100, 100) for _ in range(1000)]
+# time1 = time.monotonic()
+# print('Отсортированный список:\n', quick_sort(list_))
+# time2 = time.monotonic()
+# delta_time = time2 - time1
+# print('Время сортировки:', round(delta_time, 4))
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+
+
+##############
+#    Files   #
+##############
+
+
+# fail = open('text.txt')
+# count_lines = len(fail.readlines())
+# print(count_lines)
+
+
+#############################################
+
+
+
+
 
 
 
