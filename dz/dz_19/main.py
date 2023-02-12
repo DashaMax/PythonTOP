@@ -6,8 +6,8 @@
 from random import randint
 
 
-def search_number(a: list, number: int) -> bool:
-    for num in a:
+def search_number(l: list, number: int) -> bool:
+    for num in l:
         if num == number:
             return True
     return False
