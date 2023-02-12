@@ -167,24 +167,28 @@ def shell_sort_asc(l: list) -> list:
 
 # Quick Sorting in descending order
 def quick_sort_desc(l: list) -> list:
-    if len(l) > 1:
-        element = l[(len(l) - 1) // 2]
-        lt = [x for x in l if x < element]
-        eq = [x for x in l if x == element]
-        gt = [x for x in l if x > element]
-        l = quick_sort_desc(gt) + eq + quick_sort_desc(lt)
-    return l
+    if len(l) < 2:
+        return l
+
+    element = l[(len(l) - 1) // 2]
+    lt = [x for x in l if x < element]
+    eq = [x for x in l if x == element]
+    gt = [x for x in l if x > element]
+    new_list = quick_sort_desc(gt) + eq + quick_sort_desc(lt)
+    return new_list
 
 
 # Quick Sorting in ascending order
 def quick_sort_asc(l: list) -> list:
-    if len(l) > 1:
-        element = l[(len(l) - 1) // 2]
-        lt = [x for x in l if x < element]
-        eq = [x for x in l if x == element]
-        gt = [x for x in l if x > element]
-        l = quick_sort_asc(lt) + eq + quick_sort_asc(gt)
-    return l
+    if len(l) < 2:
+        return l
+
+    element = l[(len(l) - 1) // 2]
+    lt = [x for x in l if x < element]
+    eq = [x for x in l if x == element]
+    gt = [x for x in l if x > element]
+    new_list = quick_sort_asc(lt) + eq + quick_sort_asc(gt)
+    return new_list
 
 
 list_1 = [randint(-100, 100) for _ in range(4)]
