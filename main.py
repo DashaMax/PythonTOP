@@ -2199,10 +2199,123 @@ import random
 
 
 
+##############
+#    Files   #
+##############
+
+
+# def get_string(l: list) -> str:
+#     return '\t'.join(map(str, l))
+#
+#
+# numbers = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
+# fail_name = 'text.txt'
+#
+# with open(fail_name, 'r+', encoding='utf-8') as file:
+#     text = get_string(numbers)
+#     file.write(text)
+#
+#     nums = list(map(float, file.read().split()))
+#     print(nums, sum(nums), len(nums))
+
+
+
+#############################################
 
 
 
 
+
+
+
+####################
+#    Modules OS    #
+####################
+
+
+# import os
+
+
+# print(os.getcwd())      # return path dir (absolute path)
+# print(os.listdir())      # return list dirs and files
+# print(os.listdir('../'))
+#
+# os.mkdir('folder')      # create dir
+# os.makedirs('folder/folder/new')
+#
+# os.remove('text.txt')      # remove fail
+# os.rename('folder', 'new')      # rename dir
+#
+# os.rmdir('folder')      # remove empty dir
+#
+# for root, dirs, files in os.walk('venv'):      # watch dirs and files in root
+#     print(root, dirs, files)
+
+
+
+
+#############################################
+
+
+
+
+
+
+
+
+#########################
+#    Modules OS.PATH    #
+#########################
+
+
+# from os import path
+#
+#
+# print(path.split(r'C:\Users\Admin\Desktop'))      # tuple (head, tail)
+# print(path.dirname(r'C:\Users\Admin\Desktop'))      # name dir
+# print(path.basename(r'C:\Users\Admin\Desktop'))      # name file
+
+
+#############################################
+
+
+
+
+
+
+
+#########################
+#    Modules OS.PATH    #
+#########################
+
+
+# import os
+#
+#
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+# files_with_text = []
+#
+# for d in dirs:
+#     os.makedirs(d)
+#
+# for d, file in files.items():
+#     for f in file:
+#         file_path = os.path.join(d, f)
+#         files_with_text.append(file_path)
+#         open(file_path, 'w').close()
+#
+# for file_name in files_with_text:
+#     with open(file_name, 'w') as file:
+#         file.write(file_name)
+
+
+
+#############################################
 
 
 
