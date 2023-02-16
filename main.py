@@ -2327,6 +2327,135 @@ import random
 
 
 
+#########################
+#    Modules OS.PATH    #
+#########################
+
+
+# import os
+#
+#
+# path = r'C:/Users/Admin/Desktop'
+# docs = os.listdir(path)
+#
+# for doc in docs:
+#     doc = os.path.join(path, doc)
+#     if os.path.isfile(doc):
+#         name, size = os.path.basename(doc), os.path.getsize(doc)
+#         print(f'{name} - file - {size} bytes')
+#     elif os.path.isdir(doc):
+#         name = os.path.basename(doc)
+#         print(f'{name} - dir')
+
+
+#############################################
+
+
+
+
+
+
+# class Car:
+#     model = None
+#     year = None
+#     name = None
+#     power = None
+#     color = None
+#     price = None
+#
+#     def input_data(self, model, year, name, power, color, price):
+#         self.model = model
+#         self.year = year
+#         self.name = name
+#         self.power = power
+#         self.color = color
+#         self.price = price
+#
+#     def output_data(self):
+#         print('Название модели:', self.model)
+#         print('Год выпуска:', self.year)
+#         print('Производитель:', self.name)
+#         print('Мощность двигателя:', self.power, 'л. с.')
+#         print('Цвет машины:', self.color)
+#         print('Цена:', self.price)
+#
+#     def get_model(self):
+#         return self.model
+#
+#     def set_model(self, value):
+#         self.model = value
+#
+#
+# BMW = Car()
+# BMW.input_data('X7 M50i', 2021, 'BMW', 530, 'white', 10790000)
+# BMW.output_data()
+# BMW.set_model('Y7')
+# print(BMW.get_model())
+
+
+
+
+
+
+
+
+
+
+###############
+#    Robot    #
+###############
+
+
+# class Robot:
+#     COUNT = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         Robot.COUNT += 1
+#         print(f'Инициализация робота: {self.name}')
+#
+#     def __del__(self):
+#         Robot.COUNT -= 1
+#         print(f'Выключение робота: {self.name}')
+#         if not Robot.COUNT:
+#             print(f'Робот {self.name} был последним')
+#             print(f'Численность роботов: {self.COUNT}')
+#         else:
+#             print(f'Работающих роботов: {self.COUNT}')
+#
+#     def say_hello(self):
+#         print(f'Приветствую! Меня зовут: {self.name}')
+#
+#     def get_count_robots(self):
+#         return self.COUNT
+#
+#
+# droid1 = Robot('R2-D2')
+# droid1.say_hello()
+# print(f'Численность роботов: {droid1.get_count_robots()}')
+#
+# droid2 = Robot('C-3PO')
+# droid2.say_hello()
+# print(f'Численность роботов: {droid2.get_count_robots()}')
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
