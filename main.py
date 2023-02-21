@@ -2448,6 +2448,199 @@ import random
 
 
 
+######################
+#    Kg -> Pounds    #
+######################
+
+
+# class KgToPounds:
+#     def __init__(self, kg):
+#         self.__check_value(kg)
+#         self.__kg = kg
+#
+#     @property
+#     def kg(self):
+#         return self.__kg
+#
+#     @kg.setter
+#     def kg(self, value):
+#         self.__check_value(value)
+#         self.__kg = value
+#
+#     def to_pounds(self):
+#         return self.__kg * 2.205
+#
+#     @staticmethod
+#     def __check_value(value):
+#         if isinstance(value, (int, float)):
+#             return True
+#         raise 'Некорректное значение кг!'
+#
+#
+# weight = KgToPounds(12)
+# print(f'{weight.kg} кг -> {weight.to_pounds()} фунтов')
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+
+################
+#    Person    #
+################
+
+
+# class Person:
+#     def __init__(self, name, age):
+#         if isinstance(name, str) and isinstance(age, int):
+#             self.__name = name
+#             self.__age = age
+#         else:
+#             print('Некорректные данные!')
+#
+#     @property
+#     def name(self):
+#         return self.__name
+#
+#     @name.setter
+#     def name(self, value):
+#         if isinstance(value, str):
+#             self.__name = value
+#
+#     @name.deleter
+#     def name(self):
+#         del self.__name
+#
+#     @property
+#     def age(self):
+#         return self.__age
+#
+#     @age.setter
+#     def age(self, value):
+#         if isinstance(value, int):
+#             self.__age = value
+#
+#     @age.deleter
+#     def age(self):
+#         del self.__age
+#
+#
+# person = Person('Irina', 26)
+# print(person.__dict__)
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+################
+#    Person    #
+################
+
+
+# from math import factorial
+#
+#
+# class MathMethods:
+#     @staticmethod
+#     def get_maximum(*args):
+#         return max(args)
+#
+#     @staticmethod
+#     def get_minimum(*args):
+#         return min(args)
+#
+#     @staticmethod
+#     def get_avg(*args):
+#         if args:
+#             return sum(args) / len(args)
+#         return 0
+#
+#     @staticmethod
+#     def get_factorial():
+#         return factorial(5)
+#
+#
+# print('Максимальное число:', MathMethods.get_maximum(3, 5, 7, 9))
+# print('Минимальное число:', MathMethods.get_minimum(3, 5, 7, 9))
+# print('Среднее арифметическое:', MathMethods.get_avg(3, 5, 7, 9))
+# print('Факториал числа 5:', MathMethods.get_factorial())
+
+
+#############################################
+
+
+
+
+
+
+
+
+
+################
+#    Area    #
+################
+
+
+# class Area:
+#     __COUNT = 0
+#
+#     @staticmethod
+#     def get_count():
+#         return Area.__COUNT
+#
+#     @staticmethod
+#     def get_area_triangle_geron(a, b, c):
+#         Area.__COUNT += 1
+#         p = sum((a, b, c)) / 2
+#         return (p * (p - a) * (p - b) * (p - c)) ** 0.5
+#
+#     @staticmethod
+#     def get_area_triangle(a, h):
+#         Area.__COUNT += 1
+#         return (a * h) / 2
+#
+#     @staticmethod
+#     def get_area_square(a):
+#         Area.__COUNT += 1
+#         return a ** 2
+#
+#     @staticmethod
+#     def get_area_rectangle(a, b):
+#         Area.__COUNT += 1
+#         return a * b
+#
+#
+# print('Площадь треугольника по формуле Герона:', Area.get_area_triangle_geron(3, 4, 5))
+# print('Площадь треугольника:', Area.get_area_triangle(6, 7))
+# print('Площадь квадрата:', Area.get_area_square(7))
+# print('Площадь прямоугольника:', Area.get_area_rectangle(2, 6))
+# print('Количество подсчетов площади:', Area.get_count())
+
+
+#############################################
+
+
+
+
+
+
+
+
+
 
 
 
