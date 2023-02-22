@@ -43,7 +43,7 @@ class Sphere:
         else:
             print('Ошибка типа данных!')
 
-    def get_valume(self):
+    def get_volume(self):
         return 4 * pi * self.get_radius() ** 3 / 3
 
     def get_square(self):
@@ -62,7 +62,7 @@ class Sphere:
 
 sphere = Sphere(0, 0, 0, 0.6)
 print(f'Радиус сферы:', sphere.get_radius())
-print(f'Объем сферы:', sphere.get_valume())
+print(f'Объем сферы:', sphere.get_volume())
 print(f'Площадь поверхности:', sphere.get_square())
 print(f'Координаты центра:', sphere.get_center())
 print(f'Точка с координатами (0, -1.5, 0):', sphere.is_point_inside(0, -1.5, 0))
