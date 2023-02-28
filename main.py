@@ -2590,9 +2590,9 @@ import random
 
 
 
-################
+##############
 #    Area    #
-################
+##############
 
 
 # class Area:
@@ -2632,6 +2632,98 @@ import random
 
 
 #############################################
+
+
+
+
+
+
+
+
+#######################
+#    class Account    #
+#######################
+
+
+# class Account:
+#     RATE_RUB_TO_USD = 0.013
+#     RATE_RUB_TO_EUR = 0.011
+#     SUFFIX_RUB = 'RUB'
+#     SUFFIX_USD = 'USD'
+#     SUFFIX_EUR = 'EUR'
+#
+#     def __init__(self, surname, number, percent, balance=0):
+#         self.surname = surname
+#         self.number = number
+#         self.percent = percent
+#         self.balance = balance
+#
+#         print(f'Счет №{self.number}, принадлежащий {self.surname} был открыт.\n{"*" * 50}')
+#
+#     def __del__(self):
+#         print(f'{"*" * 50}\nСчет №{self.number}, принадлежащий {self.surname} был закрыт.')
+#
+#     @classmethod
+#     def set_usd(cls, value):
+#         cls.RATE_RUB_TO_USD = value
+#
+#     @classmethod
+#     def set_eur(cls, value):
+#         cls.RATE_RUB_TO_EUR = value
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def get_usd(self):
+#         value = Account.convert(self.balance, self.RATE_RUB_TO_USD)
+#         return f'Состояние счёта: {value} {self.SUFFIX_USD}'
+#
+#     def get_eur(self):
+#         value = Account.convert(self.balance, self.RATE_RUB_TO_EUR)
+#         return f'Состояние счёта: {value} {self.SUFFIX_EUR}'
+#
+#     def set_surname(self, value):
+#         self.surname = value
+#
+#     def add_percents(self):
+#         self.balance += self.balance * self.percent
+#         print(f'Проценты были успешно начислены!')
+#         return self.get_balance()
+#
+#     def withdraw_money(self, value):
+#         if value > self.balance:
+#             print(f'Недостаточно средств на счете!')
+#         else:
+#             self.balance -= value
+#             print(f'{value} {self.SUFFIX_RUB} успешно снято.')
+#         return self.get_balance()
+#
+#     def add_money(self, value):
+#         self.balance += value
+#         print(f'Сумма {value} {self.SUFFIX_RUB} успешно добавлена.')
+#         return self.get_balance()
+#
+#     def get_balance(self):
+#         text = f'Текущий баланс: {self.balance} {self.SUFFIX_RUB}\n{"-" * 20}'
+#         return text
+#
+#     def get_info(self):
+#         text = f'Информация о счете:\n{"-" * 20}\n№{self.number}\nВладелец: {self.surname}\nТекущий баланс: {self.balance} {self.SUFFIX_RUB}\nПроценты: {self.percent:.0%}\n{"-" * 20}'
+#         return text
+#
+#
+# account = Account('Долгих', 12345, 0.03, 1000)
+# print(account.get_info())
+# print(account.get_usd())
+# print(account.get_eur())
+#
+# Account.set_usd(2)
+# print(account.get_usd())
+# print(account.add_percents())
+# print(account.withdraw_money(400))
+# print(account.withdraw_money(4000))
+# print(account.add_money(500))
 
 
 
