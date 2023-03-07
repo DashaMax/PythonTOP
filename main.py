@@ -2734,6 +2734,111 @@ import random
 
 
 
+#####################
+#    class Table    #
+#####################
+
+
+# from math import pi
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if length is None and width:
+#             self._width = self._length = width
+#         elif radius is None:
+#             self._width = width
+#             self._length = length
+#         else:
+#             self._radius = radius
+#
+#     def get_area(self):
+#         raise NotImplementedError
+#
+#
+# class RectangleTable(Table):
+#     def __init__(self, width=None, length=None):
+#         super(RectangleTable, self).__init__(width, length)
+#
+#     def get_area(self):
+#         return self._width * self._length
+#
+#
+# class RoundTable(Table):
+#     def __init__(self, radius=None):
+#         super(RoundTable, self).__init__(radius=radius)
+#
+#     def get_area(self):
+#         return round(pi * self._radius ** 2, 2)
+#
+#
+# table1 = RectangleTable(20, 10)
+# table2 = RoundTable(40)
+# table3 = RectangleTable(30)
+# print(table1.__dict__)
+# print(table2.__dict__)
+# print(table3.__dict__)
+# print(table1.get_area())
+# print(table2.get_area())
+# print(table3.get_area())
+
+
+
+
+
+
+
+
+
+########################
+#    class Currency    #
+########################
+
+
+# from abc import ABC, abstractmethod
+#
+#
+# class Currency(ABC):
+#     def __init__(self, value):
+#         self.value = value
+#
+#     @abstractmethod
+#     def convert_to_rub(self):
+#         raise NotImplementedError
+#
+#     @abstractmethod
+#     def get_info(self):
+#         raise NotImplementedError
+#
+#
+# class Dollar(Currency):
+#     RATE = 74.16
+#     SUFFIX = 'USD'
+#
+#     def convert_to_rub(self):
+#         return str(round(self.value * self.RATE, 3)) + ' RUB'
+#
+#     def get_info(self):
+#         return str(self.value) + ' ' + self.SUFFIX
+#
+#
+# class Euro(Currency):
+#     RATE = 90.14
+#     SUFFIX = 'EUR'
+#
+#     def convert_to_rub(self):
+#         return str(round(self.value * self.RATE, 3)) + ' RUB'
+#
+#     def get_info(self):
+#         return str(self.value) + ' ' + self.SUFFIX
+#
+#
+# dollar = Dollar(20)
+# print(dollar.get_info(), '=', dollar.convert_to_rub())
+#
+# euro = Euro(20)
+# print(euro.get_info(), '=', euro.convert_to_rub())
+
 
 
 
