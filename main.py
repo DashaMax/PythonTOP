@@ -2892,36 +2892,36 @@ import random
 #################################
 
 
-class Dog:
-    def __init__(self, name: str, age: (int, float)):
-        self.name = name
-        self.age = age
-
-    def info(self):
-        return f'Я собака. Меня зовут {self.name}. Мой возраст {self.age}'
-
-    def make_sound(self):
-        return f'{self.name} гавкает.'
-
-
-class Cat:
-    def __init__(self, name: str, age: (int, float)):
-        self.name = name
-        self.age = age
-
-    def info(self):
-        return f'Я кот. Меня зовут {self.name}. Мой возраст {self.age}'
-
-    def make_sound(self):
-        return f'{self.name} мяукает.'
-
-
-cat = Cat('Пушок', 2.5)
-dog = Dog('Мухтар', 4)
-
-for animal in [cat, dog]:
-    print(animal.info())
-    print(animal.make_sound())
+# class Dog:
+#     def __init__(self, name: str, age: (int, float)):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я собака. Меня зовут {self.name}. Мой возраст {self.age}'
+#
+#     def make_sound(self):
+#         return f'{self.name} гавкает.'
+#
+#
+# class Cat:
+#     def __init__(self, name: str, age: (int, float)):
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         return f'Я кот. Меня зовут {self.name}. Мой возраст {self.age}'
+#
+#     def make_sound(self):
+#         return f'{self.name} мяукает.'
+#
+#
+# cat = Cat('Пушок', 2.5)
+# dog = Dog('Мухтар', 4)
+#
+# for animal in [cat, dog]:
+#     print(animal.info())
+#     print(animal.make_sound())
 
 
 
