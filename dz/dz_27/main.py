@@ -38,17 +38,17 @@ class Point3D:
     def __add__(self, other):
         self.__check_class(other)
         add = Point3D(self.__x + other['x'], self.__y + other['y'], self.__z + other['z'])
-        return add['x'], add['y'], add['z']
+        return add
 
     def __sub__(self, other):
         self.__check_class(other)
         sub = Point3D(self.__x - other['x'], self.__y - other['y'], self.__z - other['z'])
-        return sub['x'], sub['y'], sub['z']
+        return sub
 
     def __mul__(self, other):
         self.__check_class(other)
         mul = Point3D(self.__x * other['x'], self.__y * other['y'], self.__z * other['z'])
-        return mul['x'], mul['y'], mul['z']
+        return mul
 
     def __truediv__(self, other):
         self.__check_class(other)
@@ -56,7 +56,7 @@ class Point3D:
             raise ZeroDivisionError('деление на ноль невозможно')
 
         div = Point3D(round(self.__x / other['x'], 3), round(self.__y / other['y'], 3), round(self.__z / other['z'], 3))
-        return div['x'], div['y'], div['z']
+        return div
 
     def __eq__(self, other):
         self.__check_class(other)
@@ -69,6 +69,9 @@ class Point3D:
     def __ge__(self, other):
         self.__check_class(other)
         return self.__x >= other['x'] and self.__y >= other['y'] and self.__z >= other['z']
+
+    def get_coords(self):
+        return self.__x, self.__y, self.__z
 
     @staticmethod
     def __check_value(value):
@@ -83,17 +86,17 @@ class Point3D:
 
 point1 = Point3D(12, 15, 18)
 point2 = Point3D(6, 3, 9)
-print(f"Координаты первой точки: {point1['x']}, {point1['y']}, {point1['z']}")
-print(f"Координаты второй точки: {point2['x']}, {point2['y']}, {point2['z']}")
-print(f"Сложение координат: {point1 + point2}")
-print(f"Вычитание координат: {point1 - point2}")
-print(f"Умножение координат: {point1 * point2}")
-print(f"Деление координат: {point1 / point2}")
+print(f"Координаты первой точки: {point1.get_coords()}")
+print(f"Координаты второй точки: {point2.get_coords()}")
+print(f"Сложение координат: {(point1 + point2).get_coords()}")
+print(f"Вычитание координат: {(point1 - point2).get_coords()}")
+print(f"Умножение координат: {(point1 * point2).get_coords()}")
+print(f"Деление координат: {(point1 / point2).get_coords()}")
 print(f"Равенство координат: {point1 == point2}")
 
 point1['x'] = 20
 
-print(point1 >= point2)
-print(point2 <= point1)
+print(f"point1 >= point2: {point1 >= point2}")
+print(f"point2 <= point1: {point2 <= point1}")
 
 
