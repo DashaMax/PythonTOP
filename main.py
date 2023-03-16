@@ -2929,6 +2929,120 @@ import random
 
 
 
+###############################################################
+#  class Human, class Student, class Teacher, class Graduate  #
+###############################################################
+
+
+# class Human:
+#     def __init__(self, name, surname, age):
+#         self.name = name
+#         self.surname = surname
+#         self.age = age
+#
+#     def info(self):
+#         return f'{self.name}, {self.surname}, {self.age}'
+#
+#
+# class Student(Human):
+#     def __init__(self, name, surname, age, speciality, group, rating):
+#         super(Student, self).__init__(name, surname, age)
+#         self.speciality = speciality
+#         self.group = group
+#         self.rating = rating
+#
+#     def info(self):
+#         return super(Student, self).info() + f', {self.speciality}, {self.group}, {self.rating}'
+#
+#
+# class Teacher(Human):
+#     def __init__(self, name, surname, age, speciality, experience):
+#         super(Teacher, self).__init__(name, surname, age)
+#         self.speciality = speciality
+#         self.experience = experience
+#
+#     def info(self):
+#         return super(Teacher, self).info() + f', {self.speciality}, {self.experience}'
+#
+#
+# class Graduate(Student):
+#     def __init__(self, name, surname, age, speciality, group, rating, topic):
+#         super(Graduate, self).__init__(name, surname, age, speciality, group, rating)
+#         self.topic = topic
+#
+#     def info(self):
+#         return super(Graduate, self).info() + f', {self.topic}'
+#
+#
+# group = [Student("Батодалаев", "Даши", 16, "ГК", "Web_011", 5),
+#          Student("Загидуллин", "Линар", 32, "РПО", "PD_011", 5),
+#          Graduate("Шугани", "Сергей", 15, "РПО", "PD_011", 5, "Защита персональных данных"),
+#          Teacher("Даньшин", "Андрей", 38, "Астрофизика", 110),
+#          Student("Маркин", "Даниил", 17, "ГК", "Python_011", 5),
+#          Teacher("Башкиров", "Алексей", 45, "Разработка приложений", 20)
+# ]
+#
+# for i in group:
+#     print(i.info())
+
+
+
+
+
+
+
+#################
+#  class Power  #
+#################
+
+
+# class Power:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, a, b):
+#         return self.func(a, b) ** 2
+#
+#
+# @Power
+# def multy(a, b):
+#     return a * b
+#
+#
+# print(f'Результат: {multy(2, 3)}')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
