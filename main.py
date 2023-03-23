@@ -3134,6 +3134,162 @@ import random
 
 
 
+############
+#  pickle  #
+############
+
+
+# import pickle
+#
+#
+# class Test:
+#     def __init__(self):
+#         self.a = 35
+#         self.b = 'test'
+#         self.c = lambda x: x ** 2
+#
+#     def __getstate__(self):
+#         attr = self.__dict__.copy()
+#         del attr['c']
+#         return attr
+#
+#     def __setstate__(self, state):
+#         self.__dict__ = state
+#         self.c = lambda x: x ** 2
+#
+#
+# item1 = Test()
+# print(item1.__dict__)
+# item2 = pickle.dumps(item1)
+# item3 = pickle.loads(item2)
+# print(item3.__dict__)
+
+
+
+
+
+
+
+##########
+#  json  #
+##########
+
+
+# import json
+#
+#
+# data = {
+#     'name': 'Olga',
+#     'age': 27,
+#     1: None,
+#     True: 12,
+#     'hobbies': ('running', 'swimming'),
+#     'children': [
+#         {
+#             1: 'Иван',
+#             2: 'Андрей'
+#         }
+#     ]
+# }
+#
+# json_dumps = json.dumps(data, indent=4, ensure_ascii=False)
+# print(json_dumps)
+# json_loads = json.loads(json_dumps)
+# print(json_loads)
+
+
+
+
+
+
+###############################
+#  class Student class Group  #
+###############################
+
+
+import json
+
+
+class Student:
+    def __init__(self, name: str, marks: list):
+        self.name = name
+        self.marks = marks
+
+    def __str__(self):
+        return f'{self.name}: {", ".join(map(str, self.marks))}'
+
+    def add_mark(self, mark: int):
+        self.marks.append(mark)
+
+    def del_mark(self, index: int):
+        self.marks.pop(index)
+
+    def change_mark(self, index: int, value: int):
+        self.marks[index] = value
+
+    def get_avg(self):
+        return round(sum(self.marks) / len(self.marks), 2)
+
+    @staticmethod
+    def dump_to_json(student, filename: str):
+        student = {
+            'name': student.name,
+            'marks': student.marks
+        }
+        with open(filename, 'w') as file:
+            json.dump(student, file)
+
+    @staticmethod
+    def load_json(filename: str):
+        with open(filename) as file:
+            print(json.load(file))
+
+
+class Group:
+    def __init__(self, name: str, students: list):
+        self.name = name
+        self.students = students
+
+    def __str__(self):
+        result = 'Группа: ' + self.name + '\n'
+
+        for student in self.students:
+            result += 'Студент ' + str(student) + '\n'
+
+        return result
+
+    def add_student(self, student: Student):
+        self.students.append(student)
+
+    def del_student(self, index: int):
+        return self.students.pop(index)
+
+    @staticmethod
+    def change_group(group1, group2, index: int):
+        return group2.add_student(group1.del_student(index))
+
+
+students1 = [Student('Bobnya', [5, 4, 3, 4, 5, 3]), Student('Nikolaenko', [2, 3, 5, 4, 2])]
+group1 = Group('ГК Python', students1)
+print(group1)
+
+Student.dump_to_json(students1[1], 'student.txt')
+Student.load_json('student.txt')
+
+students2 = [Student('Birukov', [3, 5, 3, 2, 5, 4])]
+group2 = Group('ГК Web', students2)
+print(group2)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
