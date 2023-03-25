@@ -15,7 +15,7 @@ def get_person() -> dict:
 
 def write_person_json(person: dict):
     try:
-        with open('dz/dz_30/person.json') as file:
+        with open('person.json') as file:
             data = load(file)
 
     except FileNotFoundError:
@@ -28,7 +28,7 @@ def write_person_json(person: dict):
     else:
         data[1] = person
 
-    with open('dz/dz_30/person.json', 'w') as file:
+    with open('person.json', 'w') as file:
         dump(data, file, indent=2)
 
 
