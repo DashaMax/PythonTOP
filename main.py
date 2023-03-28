@@ -3207,78 +3207,170 @@ import random
 ###############################
 
 
-import json
+# import json
+#
+#
+# class Student:
+#     def __init__(self, name: str, marks: list):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         return f'{self.name}: {", ".join(map(str, self.marks))}'
+#
+#     def add_mark(self, mark: int):
+#         self.marks.append(mark)
+#
+#     def del_mark(self, index: int):
+#         self.marks.pop(index)
+#
+#     def change_mark(self, index: int, value: int):
+#         self.marks[index] = value
+#
+#     def get_avg(self):
+#         return round(sum(self.marks) / len(self.marks), 2)
+#
+#     @staticmethod
+#     def dump_to_json(student, filename: str):
+#         try:
+#             students = json.load(open(filename))
+#
+#         except FileNotFoundError:
+#             students = []
+#
+#         student = {
+#             'name': student.name,
+#             'marks': student.marks
+#         }
+#         students.append(student)
+#
+#         with open(filename, 'w') as file:
+#             json.dump(students, file, indent=2)
+#
+#     @staticmethod
+#     def load_json(filename: str):
+#         with open(filename) as file:
+#             print(json.load(file))
+#
+#
+# class Group:
+#     def __init__(self, name: str, students: list):
+#         self.name = name
+#         self.students = students
+#
+#     def __str__(self):
+#         result = 'Группа: ' + self.name + '\n'
+#
+#         for student in self.students:
+#             result += 'Студент ' + str(student) + '\n'
+#
+#         return result
+#
+#     def add_student(self, student: Student):
+#         self.students.append(student)
+#
+#     def del_student(self, index: int):
+#         return self.students.pop(index)
+#
+#     @staticmethod
+#     def change_group(group1, group2, index: int):
+#         return group2.add_student(group1.del_student(index))
+#
+#     def dump_group(self, filename):
+#         try:
+#             students = json.load(open(filename))
+#
+#         except FileNotFoundError:
+#             students = []
+#
+#         for student in self.students:
+#             students.append([student.name, student.marks])
+#
+#         with open(filename, 'w') as file:
+#             json.dump(students, file, indent=2)
+#
+#     @staticmethod
+#     def load_group(group, filename):
+#         with open(filename) as file:
+#             print(json.load(file))
+#
+#
+# students1 = [Student('Bobnya', [5, 4, 3, 4, 5, 3]), Student('Nikolaenko', [2, 3, 5, 4, 2])]
+# group1 = Group('ГК Python', students1)
+# print(group1)
+#
+# Student.dump_to_json(students1[1], 'student.txt')
+# Student.load_json('student.txt')
+#
+# students2 = [Student('Birukov', [3, 5, 3, 2, 5, 4])]
+# group2 = Group('ГК Web', students2)
+# print(group2)
+#
+# group1.dump_group('group.json')
+# Group.load_group(group1, 'group.json')
 
 
-class Student:
-    def __init__(self, name: str, marks: list):
-        self.name = name
-        self.marks = marks
-
-    def __str__(self):
-        return f'{self.name}: {", ".join(map(str, self.marks))}'
-
-    def add_mark(self, mark: int):
-        self.marks.append(mark)
-
-    def del_mark(self, index: int):
-        self.marks.pop(index)
-
-    def change_mark(self, index: int, value: int):
-        self.marks[index] = value
-
-    def get_avg(self):
-        return round(sum(self.marks) / len(self.marks), 2)
-
-    @staticmethod
-    def dump_to_json(student, filename: str):
-        student = {
-            'name': student.name,
-            'marks': student.marks
-        }
-        with open(filename, 'w') as file:
-            json.dump(student, file)
-
-    @staticmethod
-    def load_json(filename: str):
-        with open(filename) as file:
-            print(json.load(file))
 
 
-class Group:
-    def __init__(self, name: str, students: list):
-        self.name = name
-        self.students = students
-
-    def __str__(self):
-        result = 'Группа: ' + self.name + '\n'
-
-        for student in self.students:
-            result += 'Студент ' + str(student) + '\n'
-
-        return result
-
-    def add_student(self, student: Student):
-        self.students.append(student)
-
-    def del_student(self, index: int):
-        return self.students.pop(index)
-
-    @staticmethod
-    def change_group(group1, group2, index: int):
-        return group2.add_student(group1.del_student(index))
 
 
-students1 = [Student('Bobnya', [5, 4, 3, 4, 5, 3]), Student('Nikolaenko', [2, 3, 5, 4, 2])]
-group1 = Group('ГК Python', students1)
-print(group1)
 
-Student.dump_to_json(students1[1], 'student.txt')
-Student.load_json('student.txt')
+##############
+#  requests  #
+##############
 
-students2 = [Student('Birukov', [3, 5, 3, 2, 5, 4])]
-group2 = Group('ГК Web', students2)
-print(group2)
+
+# import requests
+# import json
+#
+#
+# url = 'https://jsonplaceholder.typicode.com/todos'
+# response = requests.get(url)
+# data = json.loads(response.text)
+#
+# todos = {}
+#
+# for todo in data:
+#     if todo['completed'] and not todo['userId'] in todos:
+#         todos[todo['userId']] = 1
+#     elif todo['completed'] and todo['userId'] in todos:
+#         todos[todo['userId']] += 1
+#
+# max_todo = max(list(todos.values()))
+# max_todos = dict(filter(lambda x: x[1] == max_todo, list(todos.items())))
+
+
+
+
+
+
+
+#########
+#  csv  #
+#########
+
+
+# import csv
+#
+#
+# with open('data.csv') as file:
+#     file = csv.reader(file, delimiter=';')
+#
+#     for row in file:
+#         print(row)
+#
+#
+# with open('data.csv') as file:
+#     file = csv.DictReader(file, delimiter=';')
+#
+#     for row in file:
+#         print(row)
+
+
+
+
+
+
 
 
 
