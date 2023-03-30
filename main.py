@@ -3368,6 +3368,47 @@ import random
 
 
 
+# with open('data.csv', 'w') as file:
+#     write = csv.writer(file, delimiter=';', lineterminator='\r')
+#     write.writerow(['Name', 'Age'])
+#     write.writerow(['name1', 'age1'])
+#     write.writerow(['name2', 'age2'])
+
+
+
+
+
+# with open('data.csv', 'w') as file:
+#     write = csv.DictWriter(file, delimiter=';', lineterminator='\r', fieldnames=['Name', 'Age'])
+#     write.writerow({'Name': 'name1', 'Age': 23})
+#     write.writerow({'Name': 'name2', 'Age': 33})
+
+
+
+
+
+
+
+
+#############
+#  Парсинг  #
+#############
+
+
+# from bs4 import BeautifulSoup
+#
+#
+# with open('index.html') as file:
+#     data = file.read()
+#
+# soup = BeautifulSoup(data, 'html.parser')
+# # row = soup.find_all('div', class_='row')[0]
+# # row = soup.find('div', class_='row').find('div', class_='links')
+# row = soup.find('div', id='whois3').find_next_sibling()
+# print(row)
+
+
+
 
 
 
