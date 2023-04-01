@@ -46,9 +46,9 @@ def get_product(html: str):
 
 
 def main():
-    pages = 21   # на сайте 2192 страницы
+    pages = 20   # на сайте 2192 страницы
 
-    for page in range(1, pages):
+    for page in range(1, pages + 1):
         if page == 1:
             url = 'https://www.chitai-gorod.ru/catalog/books/hudozhestvennaya-literatura-9657'
         else:
