@@ -3,7 +3,6 @@
 
 
 import csv
-import re
 import requests
 
 from bs4 import BeautifulSoup
@@ -16,12 +15,6 @@ def get_html(url: str) -> str:
         return response.text
 
     raise ConnectionError('Ошибка подключения')
-
-
-def get_src(a: str) -> str:
-    src = re.findall(r'data-src="(.+)" data-srcset=', a)
-    src = src[0] if src else ''
-    return src
 
 
 def write_product(product: list):
@@ -58,10 +51,10 @@ def main():
         books = get_product(html)
 
         for book in books:
-            title = str(book.find('div', class_='product-title__head').text).strip()
-            author = str(book.find('div', class_='product-title__author').text).strip()
-            price = str(book.find('div', class_='product-price__value').text).strip()
-            img = get_src(str(book.find('img', class_='product-picture__img')))
+            title = book.find('div', class_='product-title__head').text.strip()
+            author = book.find('div', class_='product-title__author').text.strip()
+            price = book.find('div', class_='product-price__value').text.strip()
+            img = book.find('img', class_='product-picture__img').get('data-src')
             write_product([title, author, price, img])
 
 
