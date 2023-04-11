@@ -1,8 +1,8 @@
-from controller import Conroller
+from controller import Controller
 
 
 def main():
-    controller = Conroller()
+    controller = Controller()
     controller.run()
 
 
