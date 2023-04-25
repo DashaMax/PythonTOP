@@ -3504,6 +3504,193 @@ import random
 
 
 
+# with sqlite3.connect('users.db') as connect:
+#     cursor = connect.cursor()
+    # cursor.execute('''
+    #     CREATE TABLE IF NOT EXISTS person (
+    #         id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #         name TEXT NOT NULL,
+    #         phone BLOB NOT NULL DEFAULT "+79090000000",
+    #         age INTEGER NOT NULL CHECK(0 < age < 100),
+    #         email TEXT UNIQUE
+    #     )
+    # ''')
+    #
+    # cursor.execute('''
+    #     ALTER TABLE person RENAME TO person_table;
+    # ''')
+    #
+    # cursor.execute('''
+    #     ALTER TABLE person_table
+    #     ADD COLUMN address TEXT NOT NULL DEFAULT "address"
+    # ''')
+    #
+    # cursor.execute('''
+    #     ALTER TABLE person_table
+    #     DROP COLUMN address
+    # ''')
+
+
+
+# import sqlite3
+
+
+# with sqlite3.connect('cars.db') as connect:
+#     cursor = connect.cursor()
+#     cursor.execute('''
+#         CREATE TABLE IF NOT EXISTS cars (
+#             car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#             model TEXT,
+#             price INTEGER
+#         )
+#     ''')
+#
+#     cars = [
+#         ('BMW', 54000),
+#         ('Honda', 33000)
+#     ]
+
+    # for car in cars:
+    #     cursor.execute('INSERT INTO cars VALUES (NULL, ?, ?)', car)
+
+    # cursor.execute('''
+    #     INSERT INTO cars
+    #     VALUES (1, "Renault", 22000),
+    #            (2, "Volvo", 29000),
+    #            (3, "Mercedes", 57000),
+    #            (4, "Bentley", 35000),
+    #            (5, "Audi", 52000)
+    # ''')
+
+    # cursor.execute('UPDATE cars SET price = :Price WHERE model LIKE "B%"', {'Price': 0})
+    #
+    # cursor.executescript('''
+    #     DELETE FROM cars WHERE model LIKE 'BMW';
+    #     UPDATE cars SET price = price + 100;
+    # ''')
+
+# with sqlite3.connect('cars.db') as connect:
+#     connect.row_factory = sqlite3.Row
+#     cursor = connect.cursor()
+#     cursor.executescript('''
+#         CREATE TABLE IF NOT EXISTS cost (
+#             name TEXT,
+#             tr_in INTEGER,
+#             buy INTEGER
+#         )
+#     ''')
+
+    # cursor.execute('''
+    #     INSERT INTO cars VALUES(NULL, "Запорожец", 1000)
+    # ''')
+    # last_row_id = cursor.lastrowid
+    # buy_car_id = 2
+    # cursor.execute('''
+    #     INSERT INTO cost VALUES ("Илья", ?, ?)
+    # ''', (last_row_id, buy_car_id))
+
+    # cursor.execute('''
+    #     SELECT model, price FROM cars
+    # ''')
+    #
+    # for result in cursor:
+    #     print(result['price'])
+
+
+# def read_avatar(n):
+#     try:
+#         with open(f'{n}.png', 'rb') as file:
+#             return file.read()
+#     except IOError as error:
+#         print(error)
+#         return False
+#
+#
+# with sqlite3.connect('cars.db') as connect:
+#     cursor = connect.cursor()
+#     cursor.executescript('''
+#         CREATE TABLE IF NOT EXISTS users (
+#             name TEXT,
+#             avatar BLOB,
+#             score INTEGER
+#         )
+#     ''')
+#     img = read_avatar(1)
+#
+#     if img:
+#         binary = sqlite3.Binary(img)
+#         cursor.execute('''
+#             INSERT INTO users VALUES("Илья", ?, 1000)
+#         ''', (binary,))
+
+    # with open('sql_dump.sql', 'w') as file:
+    #     for sql in connect.iterdump():
+    #         file.write(sql)
+
+    # with open('sql_dump.sql', 'r') as file:
+    #     sql = file.read()
+    #     cursor.executescript(sql)
+
+
+
+# data = [
+#     ('car', 'машина'),
+#     ('house', 'дом'),
+#     ('tree', 'дерево')
+# ]
+#
+# connect = sqlite3.connect(':memory:')
+#
+# with connect:
+#     cursor = connect.cursor()
+#     cursor.execute('''
+#         CREATE TABLE IF NOT EXISTS dict(
+#             eng TEXT,
+#             rus TEXT
+#         )
+#     ''')
+#     cursor.executemany('''
+#         INSERT INTO dict VALUES(?, ?)
+#     ''', data)
+#
+#     cursor.execute('''
+#         SELECT rus FROM dict WHERE eng LIKE "c%"
+#     ''')
+#     print(cursor.fetchall())
+
+
+
+
+
+
+
+####################
+#  SQLAlchemy ORM  #
+####################
+
+
+import os
+
+from models.database import DATABASE_NAME
+import create_database as db_creator
+
+
+if __name__ == '__main__':
+    db_is_created = os.path.exists(DATABASE_NAME)
+
+    if not db_is_created:
+        db_creator.create_database()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
