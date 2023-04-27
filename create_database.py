@@ -29,15 +29,18 @@ def _load_fake_data(session):
 
         session.add(lesson)
 
-    faker = Faker('ru_Ru')
+    faker = Faker(locale='ru_Ru')
     group_list = [group1, group2]
     session.commit()
 
     for _ in range(50):
         full_name = faker.name().split()
+        surname = full_name[0]
+        name = full_name[1]
+        patronymic = full_name[2]
         age = faker.random.randint(16, 25)
         group = faker.random.choice(group_list)
-        student = Student(full_name, age, group)
+        student = Student(surname, name, patronymic, age, group.id)
         session.add(student)
 
     session.commit()

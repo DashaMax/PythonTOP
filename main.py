@@ -3669,17 +3669,82 @@ import random
 ####################
 
 
-import os
+# import os
+#
+# from sqlalchemy import and_, distinct, text
+#
+# from models.database import DATABASE_NAME
+# import create_database as db_creator
+#
+# from models.group import Group
+# from models.lesson import Lesson, association_table
+# from models.student import Student
+# from models.database import Session
+#
+#
+# if __name__ == '__main__':
+#     db_is_created = os.path.exists(DATABASE_NAME)
+#
+#     if not db_is_created:
+#         db_creator.create_database()
+#
+#     session = Session()
 
-from models.database import DATABASE_NAME
-import create_database as db_creator
+    # for it, gr in session.query(Lesson.lesson_title, Group.group_name).filter(and_(association_table.c.lesson_id == Lesson.id, association_table.c.group_id == Group.id, Group.group_name == 'MDA-7')):
+    #     print(it, gr)
+
+    # print(session.query(Lesson).filter(Lesson.lesson_title.in_(['Math'])).all())
+    # print(session.query(Student).filter(Student.age.between(16, 17)).all())
+    # print(session.query(Student).filter(Student.age.like('1%')).limit(3).offset(2).all())
+    # print(session.query(Student).join(Group).all())
+    # print(session.query(distinct(Student.age)).all())
+
+    # session.query(Lesson).filter(
+    #     Lesson.lesson_title.like('%a%')
+    # ).update({'lesson_title': 'M'}, synchronize_session='fetch')
+    # session.commit()
+    # print(session.query(Lesson).all())
+
+    # print(session.query(Student).filter(text('age Like "16"')).order_by(text('name, id desc')).all())
 
 
-if __name__ == '__main__':
-    db_is_created = os.path.exists(DATABASE_NAME)
 
-    if not db_is_created:
-        db_creator.create_database()
+
+
+
+
+
+
+
+
+###########
+#  jinja  #
+###########
+
+
+# from jinja2 import Template
+
+
+# name = 'Ivan'
+# age = 25
+# tm = Template('Hello, I am {{ name }}. I am {{ age }}.')
+# msg = tm.render(name=name, age=age)
+
+
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#
+# tm = Template('Hello, I am {{ person.name }}. I am {{ person.age }}.')
+# msg = tm.render(person=Person('Ivan', 25))
+# print(msg)
+
+
+
+
+
 
 
 

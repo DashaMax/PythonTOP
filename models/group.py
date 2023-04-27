@@ -11,4 +11,4 @@ class Group(Base):
     student = relationship('Student')
 
     def __repr__(self):
-        return f'Group: {self.group_name}'
+        return self.group_name
