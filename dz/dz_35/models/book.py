@@ -1,14 +1,6 @@
-from sqlalchemy import Table, Integer, String, Column, ForeignKey, Text
-from sqlalchemy.orm import relationship
+from sqlalchemy import Integer, String, Column, Text, ForeignKey
 
 from .database import Base
-
-
-user_book = Table(
-                    'user_book', Base.metadata,
-                    Column('user_id', Integer(), ForeignKey('users.id')),
-                    Column('book_id', Integer(), ForeignKey('books.id'))
-                 )
 
 
 class Book(Base):
@@ -16,9 +8,11 @@ class Book(Base):
 
     id = Column(Integer(), primary_key=True)
     title = Column(String(200), nullable=False)
-    author = Column(String(50))
+
+    # По-хорошему, у таблиц books и authors должна быть связь многие ко многим - будем считать,
+    # что в нашей библиотеки нет книг, написанных несколькими авторами
+    author = Column(Integer(), ForeignKey('authors.id'))
     description = Column(Text())
-    user = relationship('User', secondary=user_book, backref="books")
 
     def __init__(self, title, author, description=None):
         self.title = title
@@ -26,7 +20,6 @@ class Book(Base):
         self.description = description
 
     def __repr__(self):
-        return f'Title: {self.title},' \
-               f'Author: {self.author},' \
-               f'Description: {self.description}'
+        return f'Название: {self.title}, ' \
+               f'Автор: {self.author}'
 
