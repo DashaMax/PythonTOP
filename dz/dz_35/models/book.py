@@ -10,7 +10,7 @@ class Book(Base):
     title = Column(String(200), nullable=False)
 
     # По-хорошему, у таблиц books и authors должна быть связь многие ко многим - будем считать,
-    # что в нашей библиотеки нет книг, написанных несколькими авторами
+    # что в нашей библиотеке нет книг, написанных несколькими авторами
     author = Column(Integer(), ForeignKey('authors.id'))
     description = Column(Text())
 
