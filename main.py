@@ -3746,6 +3746,100 @@ import random
 
 
 
+# persons = [
+#     {'name': 'Alex', 'year': 18, 'weight': 78.5},
+#     {'name': 'Nikita', 'year': 28, 'weight': 82.3}
+# ]
+#
+# template = '''
+# {% for u in users -%}
+#     {% filter upper %}{{ u.name }}{% endfilter %}
+# {% endfor -%}
+# '''
+#
+# tm = Template(template)
+# msg = tm.render(users=persons)
+# print(msg)
+
+
+
+
+
+# html = '''
+# {%- macro text_input(name, placeholder, type='text') -%}
+#     <input type='{{ type }}' name='{{ name }}' placeholder='{{ placeholder }}'>
+# {%- endmacro -%}
+#
+# <p>{{ text_input('firstname', 'Имя') }}</p>
+# <p>{{ text_input('lastname', 'Фамилия') }}</p>
+# <p>{{ text_input('address', 'Адрес') }}</p>
+# <p>{{ text_input('phone', 'Телефон', 'tel') }}</p>
+# <p>{{ text_input('email', 'Почта', type='email') }}</p>
+# '''
+#
+# tm = Template(html)
+# msg = tm.render()
+# print(msg)
+
+
+
+
+
+# persons = [
+#     {'name': 'Alex', 'year': 18, 'weight': 78.5},
+#     {'name': 'Nikita', 'year': 28, 'weight': 82.3}
+# ]
+#
+# template = '''
+# {%- macro list_users(l) -%}
+#     <ul>
+#         {%- for u in users %}
+#             <li>{{ u.name }}
+#                 {{ caller(u) }}
+#             </li>
+#         {%- endfor %}
+#     </ul>
+# {%- endmacro -%}
+#
+# {%- call(user) list_users(users) %}
+#     <ul>
+#         <li>age: {{ user.year }}</li>
+#         <li>weight: {{ user.weight }}</li>
+#     </ul>
+# {%- endcall %}
+# '''
+#
+# tm = Template(template)
+# msg = tm.render(users=persons)
+# print(msg)
+
+
+
+
+
+
+# from jinja2 import Environment, FileSystemLoader
+#
+#
+# persons = [
+#     {'name': 'Alex', 'year': 18, 'weight': 78.5},
+#     {'name': 'Nikita', 'year': 28, 'weight': 82.3}
+# ]
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('index.html')
+# msg = tm.render(users=persons)
+# print(msg)
+
+
+
+
+
+
+
+
 
 
 
