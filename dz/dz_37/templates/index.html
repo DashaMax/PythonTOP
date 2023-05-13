@@ -1,0 +1,5 @@
+{% from 'body.html' import get_content as gt %}
+
+{%- include 'header.html' ignore missing -%}
+{{- gt(textH, textP) }}
+{% include 'footer.html' ignore missing %}
