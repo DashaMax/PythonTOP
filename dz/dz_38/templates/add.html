@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form action="{{ url_for('add') }}" method="post">
+        <div class="form">
+            <h2>Добавить книгу</h2>
+
+            {% for cat, msg in get_flashed_messages(True) %}
+                <p class="message {{ cat }}">{{ msg }}</p>
+            {% endfor %}
+
+            <p><input type="text" name="title" placeholder="Название" class="form-item"></p>
+            <p><input type="text" name="url" placeholder="URL" class="form-item"></p>
+            <p><input type="text" name="author" placeholder="Автор" class="form-item"></p>
+            <p><textarea name="description" rows="10" placeholder="Описание"></textarea></p>
+            <p><input type="submit" value="Добавить" class="form-item"></p>
+        </div>
+    </form>
+{% endblock %}

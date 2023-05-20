@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+      <div class="book">
+          <h2>{{ book.title }}</h2>
+          <p>Автор: {{ book.author }}</p>
+
+          {% if book.description %}
+            <p>Содержание: {{ book.description }}</p>
+          {% endif %}
+      </div>
+{% endblock %}
