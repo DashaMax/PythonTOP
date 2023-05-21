@@ -1,10 +1,9 @@
 import os
 import sqlite3
 
-from flask import Flask, render_template, url_for, g, request, flash
+from flask import Flask, render_template, url_for, g, request, flash, abort
 
 from FDataBase import FDataBase
-
 
 DATABASE = '/tmp/.db'
 DEBUG = True
@@ -35,26 +34,18 @@ def get_db():
     return g.link_db
 
 
-menu = [
-    {'title': 'Главная', 'url': '/'},
-    {'title': 'О нас', 'url': '/about'},
-    {'title': 'Добавить', 'url': '/add'},
-    {'title': 'Доставка', 'url': '/delivery'},
-    {'title': 'Контакты', 'url': '/contacts'}
-]
-
-
 @app.route('/')
 def index():
     db = get_db()
     dbase = FDataBase(db)
 
     context = {
-        'title': menu[0]['title'],
+        'title': dbase.get_menu()[0]['title'],
+        'menu': dbase.get_menu(),
         'books': dbase.get_books()
     }
 
-    return render_template('index.html', menu=menu, **context)
+    return render_template('index.html', **context)
 
 
 @app.route('/book/<url>')
@@ -63,21 +54,29 @@ def book(url):
     dbase = FDataBase(db)
     book_ = dbase.get_book(url)
 
+    if not book_:
+        abort(404)
+
     context = {
         'title': book_['title'],
+        'menu': dbase.get_menu(),
         'book': book_
     }
 
-    return render_template('book.html', menu=menu, **context)
+    return render_template('book.html', **context)
 
 
 @app.route('/about')
 def about():
+    db = get_db()
+    dbase = FDataBase(db)
+
     context = {
-        'title': menu[1]['title'],
+        'title': dbase.get_menu()[1]['title'],
+        'menu': dbase.get_menu(),
         'text': 'Текст о нас'
     }
-    return render_template('about.html', menu=menu, **context)
+    return render_template('about.html', **context)
 
 
 @app.route('/add', methods=['GET', 'POST'])
@@ -86,9 +85,22 @@ def add():
     dbase = FDataBase(db)
 
     if request.method == 'POST':
-        if len(request.form['title']) > 1 and len(request.form['author']) > 2:
+        if len(request.form['title']) > 4 and len(request.form['author']) > 4 and len(request.form['publish']) > 2 and \
+                request.form['url'] and request.form['year'] and request.form['pages'] and request.form['price']:
             desc = request.form['description'] if request.form['description'] else None
-            result = dbase.add_book(request.form['title'], request.form['url'], request.form['author'], desc)
+            img = 'img/' + request.form['image'] if request.form['image'] else None
+
+            result = dbase.add_book(
+                request.form['title'],
+                request.form['url'],
+                request.form['author'],
+                request.form['publish'],
+                request.form['year'],
+                request.form['pages'],
+                request.form['price'],
+                img,
+                desc
+            )
 
             if len(result) == 2:
                 flash(result[1], category='error')
@@ -99,32 +111,44 @@ def add():
             flash('Ошибка добавления книги', category='error')
 
     context = {
-        'title': menu[2]['title']
+        'title': dbase.get_menu()[2]['title'],
+        'menu': dbase.get_menu()
     }
 
-    return render_template('add.html', menu=menu, **context)
+    return render_template('add.html', **context)
 
 
 @app.route('/delivery')
 def delivery():
+    db = get_db()
+    dbase = FDataBase(db)
+
     context = {
-        'title': menu[3]['title'],
+        'title': dbase.get_menu()[3]['title'],
+        'menu': dbase.get_menu(),
         'text': 'Текст доставки'
     }
-    return render_template('delivery.html', menu=menu, **context)
+    return render_template('delivery.html', **context)
 
 
 @app.route('/contacts')
 def contacts():
+    db = get_db()
+    dbase = FDataBase(db)
+
     context = {
-        'title': menu[4]['title'],
+        'title': dbase.get_menu()[4]['title'],
+        'menu': dbase.get_menu(),
         'text': 'Текст контактов'
     }
-    return render_template('contacts.html', menu=menu, **context)
+    return render_template('contacts.html', **context)
 
 
 @app.errorhandler(404)
 def page_not_found(error):
+    db = get_db()
+    dbase = FDataBase(db)
+    menu = dbase.get_menu()
     return render_template('page404.html', menu=menu, title='404 Страница не найдена')
 
 

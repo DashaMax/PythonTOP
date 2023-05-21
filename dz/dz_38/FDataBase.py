@@ -6,7 +6,7 @@ class FDataBase:
         self.__db = db
         self.__cursor = db.cursor()
 
-    def add_book(self, title, url, author, description):
+    def add_book(self, title, url, author, publish, year, pages, price, img, description):
         try:
             self.__cursor.execute('SELECT COUNT(*) AS count FROM books WHERE url LIKE ?', (url, ))
             result = self.__cursor.fetchone()
@@ -15,7 +15,17 @@ class FDataBase:
                 text = 'Книга с таким URL уже существует'
                 return False, text
 
-            self.__cursor.execute('INSERT INTO books VALUES (NULL, ?, ?, ?, ?)', (title, url, author, description))
+            self.__cursor.execute('INSERT INTO books VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (
+                title,
+                url,
+                author,
+                publish,
+                year,
+                pages,
+                price,
+                img,
+                description)
+            )
             self.__db.commit()
             return True,
 
@@ -24,7 +34,7 @@ class FDataBase:
 
     def get_books(self):
         try:
-            self.__cursor.execute('SELECT title, url, author FROM books')
+            self.__cursor.execute('SELECT title, url, author, price, image FROM books')
             result = self.__cursor.fetchall()
 
             if result:
@@ -35,7 +45,8 @@ class FDataBase:
 
     def get_book(self, url):
         try:
-            self.__cursor.execute('SELECT title, url, author, description FROM books WHERE url LIKE ?', (url,))
+            self.__cursor.execute('''SELECT title, url, author, publishing, year, pages, price, image, description
+                                     FROM books WHERE url LIKE ?''', (url,))
             result = self.__cursor.fetchone()
 
             if result:
@@ -43,3 +54,14 @@ class FDataBase:
 
         except sqlite3.Error as error:
             print(f'Ошибка получения книги из БД: {error}')
+
+    def get_menu(self):
+        try:
+            self.__cursor.execute('SELECT title, url FROM menu')
+            result = self.__cursor.fetchall()
+
+            if result:
+                return result
+
+        except sqlite3.Error as error:
+            print(f'Ошибка получения меню из БД: {error}')

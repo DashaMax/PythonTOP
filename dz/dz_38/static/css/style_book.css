@@ -1,0 +1,58 @@
+.book{
+    max-width: 500px;
+    padding: 30px 50px;
+    box-sizing: border-box;
+    margin: 100px auto;
+    box-shadow: 0 0 10px silver;
+}
+
+.book h2 {
+    text-align: center;
+    margin: 0 0 40px;
+}
+
+.book .image, .books .image{
+    width: 50%;
+    display: block;
+    margin: 50px auto;
+}
+
+.book .book-item{
+    font-weight: 700;
+}
+
+.books .image{
+    width: 100%;
+}
+
+.books{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 100px 0;
+}
+
+.books .books-item{
+    display: block;
+    max-width: 180px;
+    box-shadow: 0 0 10px silver;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    color: black;
+    text-decoration: none;
+    transition: all .3s linear;
+}
+
+.books .books-item:hover{
+    transform: scale(1.02);
+}
+
+.books .books-item p{
+    font-size: 12px;
+}
+
+.books .books-item p:first-of-type{
+    font-weight: 600;
+    font-size: 14px;
+}
