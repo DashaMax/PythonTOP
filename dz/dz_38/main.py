@@ -5,6 +5,7 @@ from flask import Flask, render_template, url_for, g, request, flash, abort
 
 from FDataBase import FDataBase
 
+
 DATABASE = '/tmp/.db'
 DEBUG = True
 SECRET_KEY = 'dhg478gyger684grefg3467rgwgi689'
@@ -38,10 +39,11 @@ def get_db():
 def index():
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
 
     context = {
-        'title': dbase.get_menu()[0]['title'],
-        'menu': dbase.get_menu(),
+        'title': menu[0]['title'],
+        'menu': menu,
         'books': dbase.get_books()
     }
 
@@ -52,6 +54,7 @@ def index():
 def book(url):
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
     book_ = dbase.get_book(url)
 
     if not book_:
@@ -59,7 +62,7 @@ def book(url):
 
     context = {
         'title': book_['title'],
-        'menu': dbase.get_menu(),
+        'menu': menu,
         'book': book_
     }
 
@@ -70,10 +73,11 @@ def book(url):
 def about():
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
 
     context = {
-        'title': dbase.get_menu()[1]['title'],
-        'menu': dbase.get_menu(),
+        'title': menu[1]['title'],
+        'menu': menu,
         'text': 'Текст о нас'
     }
     return render_template('about.html', **context)
@@ -83,6 +87,7 @@ def about():
 def add():
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
 
     if request.method == 'POST':
         if len(request.form['title']) > 4 and len(request.form['author']) > 4 and len(request.form['publish']) > 2 and \
@@ -111,8 +116,8 @@ def add():
             flash('Ошибка добавления книги', category='error')
 
     context = {
-        'title': dbase.get_menu()[2]['title'],
-        'menu': dbase.get_menu()
+        'title': menu[2]['title'],
+        'menu': menu
     }
 
     return render_template('add.html', **context)
@@ -122,10 +127,11 @@ def add():
 def delivery():
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
 
     context = {
-        'title': dbase.get_menu()[3]['title'],
-        'menu': dbase.get_menu(),
+        'title': menu[3]['title'],
+        'menu': menu,
         'text': 'Текст доставки'
     }
     return render_template('delivery.html', **context)
@@ -135,10 +141,11 @@ def delivery():
 def contacts():
     db = get_db()
     dbase = FDataBase(db)
+    menu = dbase.get_menu()
 
     context = {
-        'title': dbase.get_menu()[4]['title'],
-        'menu': dbase.get_menu(),
+        'title': menu[4]['title'],
+        'menu': menu,
         'text': 'Текст контактов'
     }
     return render_template('contacts.html', **context)
