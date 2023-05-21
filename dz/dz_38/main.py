@@ -159,5 +159,11 @@ def page_not_found(error):
     return render_template('page404.html', menu=menu, title='404 Страница не найдена')
 
 
+@app.teardown_appcontext
+def close_db(db):
+    if hasattr(g, 'link_db'):
+        g.link_db.close()
+
+
 if __name__ == '__main__':
     app.run(debug=True)
