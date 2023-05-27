@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from first_app import views
+from first_app.views import get_main, get_password, get_info
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', get_main, name='main'),
+    path('password/', get_password, name='password'),
+    path('info/', get_info, name='info'),
 ]

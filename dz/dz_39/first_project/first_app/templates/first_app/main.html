@@ -1,0 +1,34 @@
+{% extends 'first_app/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Генератор паролей</h1>
+    <form action="{% url 'password' %}">
+        <p>
+            <select name="length">
+                {% for i in length %}
+                    {% if i == 8 %}
+                        <option value="{{ i }}" selected>{{ i }}</option>
+                    {% else %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select> Количество символов
+        </p>
+
+        {% for checkbox in checkboxes %}
+            <input type="checkbox" name="{{ checkbox.0 }}" id="{{ checkbox.0 }}">
+            <label for="{{ checkbox.0 }}"> {{ checkbox.1 }}</label><br>
+        {% endfor %}
+
+        <input type="submit" value="Генерировать">
+        <p class="right">
+            <a href="{% url 'info' %}"> Инфо →</a>
+        </p>
+    </form>
+{% endblock %}

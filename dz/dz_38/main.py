@@ -47,7 +47,7 @@ def index():
         'books': dbase.get_books()
     }
 
-    return render_template('index.html', **context)
+    return render_template('main.html', **context)
 
 
 @app.route('/book/<url>')
