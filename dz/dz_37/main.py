@@ -11,7 +11,7 @@ def main():
         'textP': 'Домашнее задание выполнено!!!'
     }
 
-    tm = env.get_template('main.html')
+    tm = env.get_template('index.html')
     msg = tm.render(title=text['title'], textH=text['textH'], textP=text['textP'])
 
     with open('homework.html', 'w') as file:
