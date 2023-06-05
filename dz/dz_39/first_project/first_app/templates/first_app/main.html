@@ -1,12 +1,8 @@
 {% extends 'first_app/base.html' %}
 
 
-{% block title %}
-    {{ title }}
-{% endblock %}
-
-
 {% block content %}
+    {% include 'user/add_page.html' %}
     <h1>Генератор паролей</h1>
     <form action="{% url 'password' %}">
         <p>

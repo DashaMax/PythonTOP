@@ -1,0 +1,17 @@
+{% extends 'first_app/base.html' %}
+
+
+{% block content %}
+    <h1>Авторизация</h1>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Войти">
+    </form>
+    <p class="right">
+        <a href="{% url 'main' %}">На главную →</a>
+    </p>
+{% endblock %}
