@@ -1,0 +1,21 @@
+{% extends 'first_app/base.html' %}
+
+
+{% block content %}
+    {% include 'user/add_page.html' %}
+    <h1>{{ user.username }}</h1>
+    {% if user.email %}
+        <p class="lkp">Email: {{ user.email }}</p>
+    {% endif %}
+    <p class="lkp">Статус администратора:
+        {% if user.is_staff %}
+            Да
+        {% else %}
+            Нет
+        {% endif %}
+    </p>
+    <p class="lkp">Дата регистрации: {{ user.date_joined }}</p>
+    <p class="right">
+        <a href="{% url 'main' %}">На главную →</a>
+    </p>
+{% endblock %}

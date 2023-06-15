@@ -22,18 +22,24 @@ body{
     margin: 0 0 40px;
 }
 
-.container .password{
+.container .password, .container .password input[type=text]{
     text-align: center;
-    font-size: 28px;
     color: green;
+    font-size: 28px;
 }
 
-.container .return{
-    margin: 0;
+.container .password input[type=text]{
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+.container .password input[type=text]:focus{
+    outline: none;
 }
 
 .container .right{
-    margin: 0;
+    margin: 50px 0 0;
     text-align: right;
 }
 
@@ -62,6 +68,34 @@ body{
 
 .container form input[type=submit]:hover{
     background-color: #269926;
+    cursor: pointer;
+}
+
+.add{
+    text-align: center;
+}
+
+.notpass{
+    text-align: center;
+    color: silver;
+}
+
+.lkp {
+    font-size: 20px;
+}
+
+.delete{
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
+}
+
+.pass{
+    display: flex;
+    margin: 0 auto;
+    padding: 0 30px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container .info{
@@ -72,7 +106,7 @@ body{
 
 .block{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 
