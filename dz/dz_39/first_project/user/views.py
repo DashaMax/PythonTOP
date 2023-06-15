@@ -88,7 +88,7 @@ def add_password(request):
         password = PasswordModel(password=request.POST['password'], user=request.user)
         password.save()
         return redirect('mypassword')
-    except IntegrityError:
+    except ValueError:
         context['error'] = 'Ошибка добавления в БД'
         return render(request, 'first_project/password.html', context=context)
 
