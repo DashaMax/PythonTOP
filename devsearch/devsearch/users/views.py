@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
@@ -64,7 +64,7 @@ def register(request):
     form = CustomUserCreationForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -81,3 +81,23 @@ def register(request):
     }
 
     return render(request, 'users/login_register.html', context=context)
+
+
+@login_required
+def account(request):
+    profile = request.user.profile
+    skills = profile.skill_set.all()
+    projects = profile.project_set.all()
+
+    context = {
+        'profile': profile,
+        'skills': skills,
+        'projects': projects,
+    }
+
+    return render(request, 'users/account.html', context=context)
+
+
+@login_required
+def edit_account(request):
+    return render(request, 'users/profile_form.html')

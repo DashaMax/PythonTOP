@@ -23,6 +23,18 @@ def delete_user(sender, instance, **kwargs):
     user.delete()
 
 
+@receiver(post_save, sender=Profile)
+def update_user(sender, instance, created, **kwargs):
+    profile = instance
+    user = profile.user
+
+    if not created:
+        user.first_name = profile.name
+        user.username = profile.username
+        user.email = profile.email
+        user.save()
+
+
 #post_save.connect(profile_update, sender=Profile)
 #post_delete.connect(delete_user, sender=Profile)
 
