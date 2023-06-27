@@ -1,17 +1,21 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.shortcuts import render, redirect
-from .models import Profile
+from .models import Profile, Skill
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .form import CustomUserCreationForm, ProfileForm, SkillForm
+from .utils import search_profiles
 
 
 def profiles(request):
-    profiles_ = Profile.objects.all()
+    profiles_, search_query = search_profiles(request)
+
     context = {
-        'profiles': profiles_
+        'profiles': profiles_,
+        'search_query': search_query,
     }
     return render(request, 'users/index.html', context=context)
 
