@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
 from django.shortcuts import render, redirect
-from .models import Profile, Skill
+from .models import Profile
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .form import CustomUserCreationForm, ProfileForm, SkillForm
@@ -180,3 +179,8 @@ def delete_skill(request, pk):
     }
 
     return render(request, 'users/delete.html', context=context)
+
+
+@login_required(login_url='login')
+def inbox(request):
+    return render(request, 'users/inbox.html')
