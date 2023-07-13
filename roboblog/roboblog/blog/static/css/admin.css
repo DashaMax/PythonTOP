@@ -1,0 +1,23 @@
+#header, #content-start{
+    background-color: black;
+}
+
+.app-blog caption, .app-auth caption, #content-related .module h2, nav .breadcrumbs{
+    background-color: white;
+}
+
+.app-blog caption .section, .app-blog th a, .app-blog td a, .app-auth caption .section, .app-auth th a, .app-auth td a, #content-related .module h3, #content-related .module .actionlist a, nav .breadcrumbs a, nav .breadcrumbs{
+    color: black;
+}
+
+.app-blog tr, .app-auth tr, #content-related{
+    background-color: #f5dd5d;
+}
+
+#content-related .module h2{
+    color: black;
+}
+
+#content-related .module .actionlist span{
+    color: gray;
+}

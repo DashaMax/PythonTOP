@@ -1,6 +1,16 @@
+from django import forms
 from django.contrib import admin
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import Blog, Category
+
+
+class BlogAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Blog
+        fields = '__all__'
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -29,6 +39,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_editable = (
         'is_published',
     )
+    form = BlogAdminForm
 
 
 class CategoryAdmin(admin.ModelAdmin):

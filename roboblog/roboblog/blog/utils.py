@@ -5,8 +5,7 @@ from blog.models import Category
 
 menu = [
     {'title': 'Добавить статью', 'url_name': 'add_page'},
-    {'title': 'Регистрация', 'url_name': 'register'},
-    {'title': 'Войти', 'url_name': 'index'},
+    {'title': 'Обратная связь', 'url_name': 'contact'},
 ]
 
 
